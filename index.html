@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/">
+    <meta charset="utf-8">
+    <title>angular2</title>
+
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <script>
+      google.charts.load('current', { 'packages': ['map', 'corechart'] });
+    </script>
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+      System.config({
+        packages: {
+          src: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('src/main')
+            .then(null, console.error.bind(console));
+    </script>
+
+  </head>
+
+  <body>
+    <my-app></my-app>
+  </body>
+</html>
