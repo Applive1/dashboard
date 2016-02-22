@@ -1,4 +1,4 @@
-import {Component, OnInit, OnChanges} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import {DrawService} from '../../shared/services/draw.service';
 import {HttpService} from '../../shared/services/http.service';
 
@@ -9,7 +9,7 @@ import {HttpService} from '../../shared/services/http.service';
   templateUrl: 'public/home/components/home.html'
 })
 
-export class HomeCmp implements OnInit, OnChanges {
+export class HomeCmp implements OnInit {
 
   constructor(
     private _drawService: DrawService,

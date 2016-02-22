@@ -8,7 +8,7 @@ export class HttpService {
 
   getAllStats(type: String) {
 		var path = 'http://localhost:8000/api/' + type;
-		console.log('helloworld services');
+
     return this._http.get(path)
     					 .map(res => res.json());
   }

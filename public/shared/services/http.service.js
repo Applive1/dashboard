@@ -25,7 +25,6 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
                 }
                 HttpService.prototype.getAllStats = function (type) {
                     var path = 'http://localhost:8000/api/' + type;
-                    console.log('helloworld services');
                     return this._http.get(path)
                         .map(function (res) { return res.json(); });
                 };

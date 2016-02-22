@@ -5,18 +5,11 @@
     <meta charset="utf-8">
     <title>angular2</title>
 
+    <link rel="stylesheet" href="public/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/assets/css/styles.css">
+
     <!-- 1. Load libraries -->
     <!-- IE required polyfills, in this exact order -->
-
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.4/es6-shim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.22/system-polyfills.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.22/system.src.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.0.8/rx.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.6/angular2.dev.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.6/router.dev.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.6/http.dev.js"></script>
-    <script src="public/main.js"></script> -->
 
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
     <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
@@ -52,6 +45,20 @@
   </head>
 
   <body>
+
     <my-app></my-app>
+
+    <script src="public/assets/js/jquery-2.2.0.min.js"></script>
+    <!-- <script src="public/assets/js/bootstrap.min.js"></script> -->
+    <script>
+        $(function() {
+          if ( $( "#wrapper" ).length ) {
+              $( "#wrapper" ).show();         
+          }
+          else {
+            console.log('luong');
+          }
+        });
+    </script>
   </body>
 </html>
