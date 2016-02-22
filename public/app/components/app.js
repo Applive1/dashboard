@@ -8,6 +8,9 @@ System.register(['angular2/core', 'angular2/router', '../../shared/services/draw
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
+    var __param = (this && this.__param) || function (paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); }
+    };
     var core_1, router_1, draw_service_1, http_service_1, dashboard_1, home_1;
     var AppCmp;
     return {
@@ -32,8 +35,15 @@ System.register(['angular2/core', 'angular2/router', '../../shared/services/draw
             }],
         execute: function() {
             AppCmp = (function () {
-                function AppCmp() {
+                function AppCmp(elementRef) {
+                    this.elementRef = elementRef;
                 }
+                AppCmp.prototype.ngOnInit = function () {
+                    jQuery(this.elementRef.nativeElement).find('#menu-toggle').click(function (e) {
+                        e.preventDefault();
+                        $("#wrapper").toggleClass("toggled");
+                    });
+                };
                 AppCmp = __decorate([
                     core_1.Component({
                         directives: [router_1.ROUTER_DIRECTIVES],
@@ -53,8 +63,9 @@ System.register(['angular2/core', 'angular2/router', '../../shared/services/draw
                             name: 'Dashboard',
                             component: dashboard_1.DashboardCmp
                         }
-                    ]), 
-                    __metadata('design:paramtypes', [])
+                    ]),
+                    __param(0, core_1.Inject(core_1.ElementRef)), 
+                    __metadata('design:paramtypes', [core_1.ElementRef])
                 ], AppCmp);
                 return AppCmp;
             })();

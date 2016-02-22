@@ -1,9 +1,11 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit, ElementRef, Inject} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {DrawService} from '../../shared/services/draw.service';
 import {HttpService} from '../../shared/services/http.service';
 import {DashboardCmp} from '../../dashboard/components/dashboard';
 import {HomeCmp} from '../../home/components/home';
+
+declare var jQuery: any;
 
 @Component({
   directives: [ROUTER_DIRECTIVES],
@@ -26,4 +28,17 @@ import {HomeCmp} from '../../home/components/home';
   }
 ])
 
-export class AppCmp { }
+export class AppCmp implements OnInit {
+  elementRef: ElementRef;
+
+  constructor( @Inject(ElementRef) elementRef: ElementRef) {
+    this.elementRef = elementRef;
+  }
+
+  ngOnInit() {
+    jQuery(this.elementRef.nativeElement).find('#menu-toggle').click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    })
+  }
+}
